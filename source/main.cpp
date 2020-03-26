@@ -1,7 +1,8 @@
 #include<iostream>
 
 namespace tictactoe {
-	// Variablen für die Positionen auf dem Feld
+	//DE: Variablen für die Positionen auf dem Feld
+	//EN: Variables for the positions on the field
 	char upperLeftCorner;
 	char upperRightCorner;
 	char upperMiddle;
@@ -12,11 +13,15 @@ namespace tictactoe {
 	char downMiddle;
 	char downRightCorner;
 
+	//DE: Welcher Spieler gerade dran ist
+	//EN: Current player
+	char currentPlayer;
+
 	int xcoordInput;
 	int ycoordInput;
 
 	void gameExplanation() {
-		std::cout << "Du bist das Kreuz und musst gegen den Kreis gewinnen" << std::endl << std::endl;
+		std::cout << "Es ist Tic-tac-toe." << std::endl << std::endl;
 	}
 
 	void drawBoard() {
@@ -31,9 +36,13 @@ namespace tictactoe {
 		std::cout << "  -------------" << std::endl;
 	}
 
-	void getAndProcessXINput() {
+	void getAndProcessInput() {
 		// Fragen
-		std::cout << "Kreuz, was ist deine X Koordinate?";
+		if (currentPlayer == 'X') {
+			std::cout << "Kreuz, was ist deine X Koordinate?" << std::endl;
+		} else {
+			std::cout << "Kreis, was ist deine X Koordinate?" << std::endl;
+		}
 		std::cin >> xcoordInput;
 		std::cout << "Und was ist deine Y Koordinate?";
 		std::cin >> ycoordInput;
@@ -43,132 +52,120 @@ namespace tictactoe {
 			if (upperLeftCorner == 'X' or upperLeftCorner == 'O') {
 				std::cout << "Dieses Feld ist bereits besetzt." << std::endl;
 			} else {
-				upperLeftCorner = 'X';
+				if(tictactoe::currentPlayer == 'X') {
+					upperLeftCorner = 'X';
+					tictactoe::currentPlayer = 'O';
+				} else {
+					upperLeftCorner = 'O';
+					tictactoe::currentPlayer = 'X';
+				}
 			}
 		} else if (xcoordInput == 1 && ycoordInput == 0) {
 			if (upperMiddle == 'X' or upperLeftCorner == 'O') {
 				std::cout << "Dieses Feld ist bereits besetzt." << std::endl;
 			} else {
-				upperMiddle = 'X';
+				if(tictactoe::currentPlayer == 'X') {
+					upperMiddle = 'X';
+					tictactoe::currentPlayer = 'O';
+				} else {
+					upperMiddle = 'O';
+					tictactoe::currentPlayer = 'X';
+				}
 			}
 		} else if (xcoordInput == 2 && ycoordInput == 0) {
 			if (upperRightCorner == 'X' or upperRightCorner == 'O') {
 				std::cout << "Dieses Feld ist bereits besetzt." << std::endl;
 			} else {
-				upperRightCorner = 'X';
+				if(tictactoe::currentPlayer == 'X') {
+					upperRightCorner = 'X';
+					tictactoe::currentPlayer = 'O';
+				} else {
+					upperRightCorner = 'O';
+					tictactoe::currentPlayer = 'X';
+				}
 			}
 		} else if (xcoordInput == 0 && ycoordInput == 1) {
 			if (middleLeft == 'X' or middleLeft == 'O') {
 				std::cout << "Dieses Feld ist bereits besetzt." << std::endl;
 			} else {
-				middleLeft = 'X';
+				if(tictactoe::currentPlayer == 'X') {
+					middleLeft = 'X';
+					tictactoe::currentPlayer = 'O';
+				} else {
+					middleLeft = 'O';
+					tictactoe::currentPlayer = 'X';
+				}
 			}
 		} else if (xcoordInput == 1 && ycoordInput == 1) {
 			if (middle == 'X' or middle == 'O') {
 				std::cout << "Dieses Feld ist bereits besetzt." << std::endl;
 			} else {
-				middle = 'X';
+				if(tictactoe::currentPlayer == 'X') {
+					middle = 'X';
+					tictactoe::currentPlayer = 'O';
+				} else {
+					middle = 'O';
+					tictactoe::currentPlayer = 'X';
+				}
 			}
 		} else if (xcoordInput == 2 && ycoordInput == 1) {
 			if (middleRight == 'X' or middleRight == 'O') {
 				std::cout << "Dieses Feld ist bereits besetzt." << std::endl;
 			} else {
-				middleRight = 'X';
+				if(tictactoe::currentPlayer == 'X') {
+					middleRight = 'X';
+					tictactoe::currentPlayer = 'O';
+				} else {
+					middleRight = 'O';
+					tictactoe::currentPlayer = 'X';
+				}
 			}
 		} else if (xcoordInput == 0 && ycoordInput == 2) {
 			if (downLeftCorner == 'X' or downLeftCorner == 'O') {
 				std::cout << "Dieses Feld ist bereits besetzt." << std::endl;
 			} else {
-				downLeftCorner = 'X';
+				if(tictactoe::currentPlayer == 'X') {
+					downLeftCorner = 'X';
+					tictactoe::currentPlayer = 'O';
+				} else {
+					downLeftCorner = 'O';
+					tictactoe::currentPlayer = 'X';
+				}
 			}
 		} else if (xcoordInput == 1 && ycoordInput == 2) {
 			if (downMiddle == 'X' or downMiddle == 'O') {
 				std::cout << "Dieses Feld ist bereits besetzt." << std::endl;
 			} else {
-				downMiddle = 'X';
+				if(tictactoe::currentPlayer == 'X') {
+					downMiddle = 'X';
+					tictactoe::currentPlayer = 'O';
+				} else {
+					downMiddle = 'O';
+					tictactoe::currentPlayer = 'X';
+				}
 			}
 		} else if (xcoordInput == 2 && ycoordInput == 2) {
 			if (downRightCorner == 'X' or downRightCorner == 'O') {
 				std::cout << "Dieses Feld ist bereits besetzt." << std::endl;
 			} else {
-				downRightCorner == 'X';
+				if(tictactoe::currentPlayer == 'X') {
+					downRightCorner = 'X';
+					tictactoe::currentPlayer = 'O';
+				} else {
+					downRightCorner = 'O';
+					tictactoe::currentPlayer = 'X';
+				}
 			}
 		} else {
 			std::cout << "Das ist keine gültige Position." << std::endl << "Versuch es noch einmal." << std::endl;
-			tictactoe::getAndProcessXINput();
+			tictactoe::getAndProcessInput();
 		}
-	}
-	void getAndProcessOINput() {
-		// Fragen
-		std::cout << "Kreis, was ist deine X Koordinate?";
-		std::cin >> xcoordInput;
-		std::cout << "Und was ist deine Y Koordinate?";
-		std::cin >> ycoordInput;
-
-		// Verarbeitung
-		if (xcoordInput == 0 && ycoordInput == 0) {
-			if (upperLeftCorner == 'X' or upperLeftCorner == 'O') {
-				std::cout << "Dieses Feld ist bereits besetzt." << std::endl;
-			} else {
-				upperLeftCorner = 'O';
-			}
-		} else if (xcoordInput == 1 && ycoordInput == 0) {
-			if (upperMiddle == 'X' or upperLeftCorner == 'O') {
-				std::cout << "Dieses Feld ist bereits besetzt." << std::endl;
-			} else {
-				upperMiddle = 'O';
-			}
-		} else if (xcoordInput == 2 && ycoordInput == 0) {
-			if (upperRightCorner == 'X' or upperRightCorner == 'O') {
-				std::cout << "Dieses Feld ist bereits besetzt." << std::endl;
-			} else {
-				upperRightCorner = 'O';
-			}
-		} else if (xcoordInput == 0 && ycoordInput == 1) {
-			if (middleLeft == 'X' or middleLeft == 'O') {
-				std::cout << "Dieses Feld ist bereits besetzt." << std::endl;
-			} else {
-				middleLeft = 'O';
-			}
-		} else if (xcoordInput == 1 && ycoordInput == 1) {
-			if (middle == 'X' or middle == 'O') {
-				std::cout << "Dieses Feld ist bereits besetzt." << std::endl;
-			} else {
-				middle = 'O';
-			}
-		} else if (xcoordInput == 2 && ycoordInput == 1) {
-			if (middleRight == 'X' or middleRight == 'O') {
-				std::cout << "Dieses Feld ist bereits besetzt." << std::endl;
-			} else {
-				middleRight = 'O';
-			}
-		} else if (xcoordInput == 0 && ycoordInput == 2) {
-			if (downLeftCorner == 'X' or downLeftCorner == 'O') {
-				std::cout << "Dieses Feld ist bereits besetzt." << std::endl;
-			} else {
-				downLeftCorner = 'O';
-			}
-		} else if (xcoordInput == 1 && ycoordInput == 2) {
-			if (downMiddle == 'O' or downMiddle == 'O') {
-				std::cout << "Dieses Feld ist bereits besetzt." << std::endl;
-			} else {
-				downMiddle = 'O';
-			}
-		} else if (xcoordInput == 2 && ycoordInput == 2) {
-			if (downRightCorner == 'X' or downRightCorner == 'O') {
-				std::cout << "Dieses Feld ist bereits besetzt." << std::endl;
-			} else {
-				downRightCorner == 'O';
-			}
-		} else {
-			std::cout << "Das ist keine gültige Position." << std::endl << "Versuch es noch einmal." << std::endl;
-			tictactoe::getAndProcessOINput();
-		}	
 	}
 }
 
 int main() {
 	char pauseVariable;
+	tictactoe::currentPlayer = 'X';
 	system("cls");
 	tictactoe::gameExplanation();
 	std::cout << std::endl << "Tippe eine Zahl wie 0 ein und druecke dann <ENTER> um fortzufahren.";
@@ -176,10 +173,7 @@ int main() {
 	for (;;) {
 		system("cls");
 		tictactoe::drawBoard();
-		tictactoe::getAndProcessXINput();
-		system("cls");
-		tictactoe::drawBoard();
-		tictactoe::getAndProcessOINput();
+		tictactoe::getAndProcessInput();
 	}
 	return 0;
 }
